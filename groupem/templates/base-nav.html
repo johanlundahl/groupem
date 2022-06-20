@@ -1,0 +1,42 @@
+(% extends "base-plain.html" %)
+
+
+(% block body_content %)
+    <div class="h-100 d-flex flex-column ">
+      <div class="flex-column justify-content-center overflow-auto">
+
+        <!-- menu -->
+        <nav class="navbar sticky-top bg-white navbar-default my-navbar">
+          <span>(% block navigation_title %)(% endblock %)</span>
+          <button class="navbar-toggler my-navbar-toggler" 
+            type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+            aria-controls="collapsibleNavbar" aria-expanded="false" 
+            aria-label="Toggle navigation" onclick="toggleNav()">
+            <span><i class="fas fa-bars menu-icon text-dark fa-1x"></i></span>
+          </button>
+          <div id="myNav" class="overlay">
+            <div class="overlay-content">
+              (% if user is defined %)
+              <a class="nav-link" href="/users/(( user.name ))">Min sida</a>
+              <a class="nav-link" href="/logout">Logga ut</a>
+              (% endif %)
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="flex-column justify-content-center px-2 flex-grow-1 overflow-auto my-page">
+        <!-- main content of page -->
+        (% block page_content %) (% endblock %)
+
+      </div>
+      <div class="flex-column justify-content-center px-2 my-footer" style="margin-bottom: 10px;">
+        <div class="p-0">
+
+          <!-- footer of page -->
+          (% block footer_content %) (% endblock %)
+
+        </div>
+      </div>        
+    </div>
+(% endblock %)

@@ -1,0 +1,29 @@
+(% extends 'base-plain.html' %)
+
+(% block body_content %)
+
+<div class="container centered">  
+
+	<h1>Grupper</h1>
+
+	<form action="/groups" method="POST">
+	<div class="row mt-2 form-group">
+		<div class="col">
+		    <label for="names">Namn</label>
+    		<textarea class="form-control" name="names" id="names" rows="10"></textarea>
+    	</div>
+	</div>
+	<div class="row mt-2 form-group">
+		<div class="col">
+			<label for="group-size">Antal i varje grupp</label>
+			<input class="form-control" type="number" name="group-size" id="group-size" min="0" step="1" data-bind="value:replyNumber" />
+    	</div>
+	</div>
+	<div class="row mt-2">
+		<div class="col">
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Skapa grupper</button>
+		</div>
+	</div>  
+</form>
+</div>  
+(% endblock %)

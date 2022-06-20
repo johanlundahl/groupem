@@ -1,0 +1,25 @@
+(% extends 'base-plain.html' %)
+
+(% block body_content %)
+
+<div class="container centered">  
+
+	<h1>Grupper</h1>
+
+	(% for group in groups %)
+	<p>
+		(% for name in group %)
+			(( name ))<br>
+		(% endfor%)
+	</p>	
+	(% endfor %)
+	
+	<form action="/groups" method="POST">
+		<textarea class="invisible" name="names">(( names ))</textarea>
+		<input class="invisible" type="number" name="group-size" value="(( group_size ))" />
+		<button type="submit" class="btn btn-primary btn-lg btn-block">Nya grupper</button>
+	</form>
+
+	<a href="/" class="btn btn-link btn-lg btn-block">Börja om</a>
+</div>  
+(% endblock %)
